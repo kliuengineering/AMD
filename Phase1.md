@@ -10,4 +10,11 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 2) Install Git <br>
 ``` choco install git -y ```
 
-3) 
+3) Install Anaconda Navigator for Python 3; use the official Anaconda website for this.
+
+4) Remember to add environment path for Python 3 (look up online or ChatGPT how to do it).
+
+5) Rmember to check for Pip 3 and run the following if ``` pip --version ``` does not return anything. <br>
+    ``` $set PATH=C:\...\anaconda\envs\ML\Scripts;%PATH% ``` <br>
+    Again, add it to the path environment just like how we did for Python 3.
+    
