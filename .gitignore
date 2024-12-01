@@ -1,1 +1,25 @@
+# macOS
 .DS_Store
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Desktop.ini
+System Volume Information
+*.tmp
+~*
+
+# General
+*.swp
+*.swo
+*.bak
+*.log
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.vscode/
+
