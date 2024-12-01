@@ -46,7 +46,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 
 19) Go to ``` ~/unittest/ ``` and create a directory called BuildTools, and then create another directory with the exact same name BuildTools inside it. So effectively it will look like ``` ~/unittest/BuildTools/BuildTools/ ```
 
-20) Now, search for a .json file called buildtools.json, and look around to see all the packages that we need. For now, we can ignore NASM and ASL as they can be left out at this stage.
+20) Now, search for a .json file called buildtools.json, and look around to see all the packages that we need. For now, we can ignore ASL as they can be left out at this stage. For NASM, it will be installed together with Strawberry Perl later on, so we do not need to worry about NASM separately. 
 
 21) Specifically, we need to get Visual Studio 2019 and its SDKs, and some Microsoft SDKs stated in the .json file, and Perl (5.40.XX).
 

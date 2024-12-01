@@ -2,7 +2,7 @@
 
 ## Description
 - This repository is dedicated to the R&D of a research project with AMD (US & Canada).
-- All enclosed files are tend to be open-sourced upon release.
+- All enclosed files are intended to be open-sourced upon release.
 
 ## Objectives
 - To survey various strategies for unit tests.
