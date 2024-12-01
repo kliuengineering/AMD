@@ -1,5 +1,9 @@
 # Phase One - Infrastructure Setup
 
+## Table of Contents
+1. [Setup](#setting-up-for-windows)
+2. [Unit Tests](#unit-tests)
+
 ## Setting Up for Windows
 Assuming we have a fresh windows 11 Pro installation, the steps are as follows:
 1) Install chocolatey package manager using PowerShell script using: <br>
@@ -65,3 +69,6 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 28) Now cd into unittest, and run ``` dbuild.cmd ut UnitTest\AgesaModuleUtPkgGn.dsc ```
 
 29) Can always do a clean using ``` dbuild.cmd clean ```
+
+
+## Unit Tests
