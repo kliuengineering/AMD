@@ -16,7 +16,9 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 
 3) Install Anaconda Navigator for Python 3; use the official Anaconda website for this.
 
-4) Remember to add environment path for Python 3 (look up online or ChatGPT how to do it).
+4) Remember to add environment path for Python 3 (look up online or ChatGPT how to do it). <br>
+    - Run ``` pip install mako ``` <br>
+    - Run ``` pip install pygount ``` <br>
 
 5) Rmember to check for Pip 3 and run the following if ``` pip --version ``` does not return anything. <br>
     ``` $set PATH=C:\...\anaconda\envs\ML\Scripts;%PATH% ``` <br>
