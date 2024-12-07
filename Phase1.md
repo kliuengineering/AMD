@@ -28,7 +28,8 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 
 7) Install VS Code using ``` choco install vscode -y ```
 
-8) ``` git clone --recurse-submodules https://github.com/openSIL/opensil-uefi-interface.git AmdOpenSilPkg/opensil-uefi-interface ```
+8) Go into ~/unittest/ <br> 
+``` git clone --recurse-submodules https://github.com/openSIL/opensil-uefi-interface.git AmdOpenSilPkg/opensil-uefi-interface ```
 
 9) ``` cd AmdOpenSilPkg/opensil-uefi-interface ``` and then ``` git checkout geona_poc ```
 
