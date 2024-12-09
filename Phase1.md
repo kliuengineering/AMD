@@ -31,21 +31,22 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 8) Go into ~/unittest/ <br> 
 ``` git clone --recurse-submodules https://github.com/openSIL/opensil-uefi-interface.git AmdOpenSilPkg/opensil-uefi-interface ```
 
-9) ``` cd AmdOpenSilPkg/opensil-uefi-interface ``` and then ``` git checkout geona_poc ```
+9) ``` cd AmdOpenSilPkg/opensil-uefi-interface ``` and then ``` git checkout genoa_poc ```
 
 10) Go back to ~/unittest/, we will do ``` git clone https://github.com/openSIL/AGCL-R.git ``` and then ``` cd AGCL-R ``` and then ``` git checkout genoa_poc ```
 
 11) Go back to ~/unittest/, then ``` git clone https://github.com/openSIL/EDKII-Platform.git Platform ``` and then cd into it, and then ``` git checkout geona_poc ```
 
-12) Go back to ~/unittest/, we will do ``` git clone https://github.com/openSIL/unit_test_framework.git ``` and then cd into it, and then checkout geona_poc again.
+12) Go back to ~/unittest/, we will do ``` git clone https://github.com/openSIL/unit_test_framework.git ``` and then cd into it, and then checkout genoa_poc again.
 
-13) Copy the entire folder called "opensil-uefi-interface" from ``` ~/unittest/unit_test_framework/AmdOpenSilPkg/ ``` to ``` ~/unittest/AmdOpoenSilPkg/ ``` replace everything in there.
+13) ~~ Copy the entire folder called "opensil-uefi-interface" from ``` ~/unittest/unit_test_framework/AmdOpenSilPkg/ ``` to ``` ~/unittest/AmdOpoenSilPkg/ ``` replace everything in there. ~~
 
 14) Go back to ~/unittest/, we will do ``` git clone -b edk2-stable202205 https://github.com/tianocore/edk2.git ``` and then perform ``` cd edk2 ``` and then perform ``` git submodule update --init ```
 
 15) Go back to ~/unittest/, we will do ``` git clone https://github.com/tianocore/edk2-platforms.git ``` and then cd into it, and then perform ``` git checkout b8ffb76b471dae5e24badcd9e04033e8c9439ce3 ```
 
-16) Go back to ~/unittest/, we will do ``` git clone https://github.com/openSIL/amd_firmwares.git ``` 
+16) Go back to ~/unittest/, we will do ``` git clone https://github.com/openSIL/amd_firmwares.git ``` <br>
+Move all contents of ``` amd_firmwares/Firmwares/Genoa ``` into ``` AGCL-R/AgesaModulePkg/Firmwares/Genoa ```
 
 17) Go to ``` ~/unittest/amd_firmwares/Firmwares/Genoa/ ``` and then move everything inside here to ```~/unittest/AGCL-R/AgesaModulePkg/Firmwares/Genoa/ ```
 
