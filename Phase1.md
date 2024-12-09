@@ -39,7 +39,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 
 12) Go back to ~/unittest/, we will do ``` git clone https://github.com/openSIL/unit_test_framework.git ``` and then cd into it, and then checkout genoa_poc again.
 
-13) ~~ Copy the entire folder called "opensil-uefi-interface" from ``` ~/unittest/unit_test_framework/AmdOpenSilPkg/ ``` to ``` ~/unittest/AmdOpoenSilPkg/ ``` replace everything in there. ~~
+13) ~~Copy the entire folder called "opensil-uefi-interface" from ``` ~/unittest/unit_test_framework/AmdOpenSilPkg/ ``` to ``` ~/unittest/AmdOpoenSilPkg/ ``` replace everything in there.~~
 
 14) Go back to ~/unittest/, we will do ``` git clone -b edk2-stable202205 https://github.com/tianocore/edk2.git ``` and then perform ``` cd edk2 ``` and then perform ``` git submodule update --init ```
 
