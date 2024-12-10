@@ -13,6 +13,16 @@ Link: [Phase 1 Documentation](Phase1.md)
 
 Timeline
 - Start Date: November 27, 2024
+- End Date: December 9, 2024
+
+Abstract
+- Setting up the development environment for UT.
+
+## Phase Two - Intro to Unit Test
+Link: [Phase 2 Documentation](Phase2.md)
+
+Timeline
+- Start Date: December 9, 2024
 - End Date: TBD
 
 Abstract

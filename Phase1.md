@@ -1,8 +1,9 @@
 # Phase One - Infrastructure Setup
 
 ## Table of Contents
-1. [Setup](#setting-up-for-windows)
-2. [Unit Tests](#unit-tests)
+1. [Builder Setup](#setting-up-for-windows)
+2. [Framework Setup](#Framework-Setup)
+3. [First Try](#First-Try)
 
 ## Setting Up for Windows
 Assuming we have a fresh windows 11 Pro installation, the steps are as follows:
@@ -64,15 +65,69 @@ Move all contents of ``` amd_firmwares/Firmwares/Genoa ``` into ``` AGCL-R/Agesa
 
 24) We will also go into ``` C:/Program Files (x86)/MicrosoftSDK/Windows Kits/ ``` and copy & paste "10" into ``` ~/unittest/BuildTools/BuildTools/WindowsSDK/ ``` note we need to ``` mkdir WindowsSDK ``` here as well.
 
-25) Now go to [https://strawberryperl.com](...) and download 5.40.XX version, install it. Go into ``` ~/Strawberry/ ``` copy & paste the folder "perl" into ``` ~/unittest/BuildTools/BuildTools/ ``` and then copy & paste the folder "c" into ``` ~/perl/ ```
+25) Now go to [https://strawberryperl.com](...) and download 5.40.XX version, install it. ~~Go into ``` ~/Strawberry/ ``` copy & paste the folder "perl" into ``` ~/unittest/BuildTools/BuildTools/ ``` and then copy & paste the folder "c" into ``` ~/perl/ ```~~
 
 26) Go back to ~/unittest/, we will go into ``` ~/unittest/unit_test_framework/ ``` and copy & paste the Platform folder to ```~/unittest/ ``` and overwrite the existing folder. 
     
-27) Go to "Environment Variable" for Windows, and add a new "User Variable", set the Variable Name = PYTHON_HOME, Variable Value = \<where your python is installed>
+27) Go to "Environment Variable" for Windows, and add a new "User Variable", set the Variable Name = PYTHON_HOME, Variable Value = \<where your python is installed> <br>
+Also add another "User Variable" for ``` PERL_PATH=C:\Strawberry\perl\bin ``` (wherever you installed Perl) 
 
 28) Now cd into unittest, and run ``` dbuild.cmd ut UnitTest\AgesaModuleUtPkgGn.dsc ```
 
 29) Can always do a clean using ``` dbuild.cmd clean ```
 
 
-## Unit Tests
+
+
+
+## Framework Setup
+
+30) Add "Results" folder inside ~/unittest/
+
+31) Install Dynamo Rio 10 at https://dynamorio.org/page_releases.html
+
+32) Go to ``` ~/unittest/unit_test_framework/Platform/AmdCommonPkg/Test/UnitTtest/Scripts/ ``` we need to configure the dispatcher here. <br>
+``` 
+{
+  "InPath"                : "C:\\Develop\\unittest\\Build\\AmdCommonPkg\\HostTest\\NOOPT_VS2019\\IA32",
+  "OutPath"               : "C:\\Develop\\unittest\\Results",
+  "RepoPath"              : "C:\\Develop\\unittest",
+  "DynamoRioPath"         : "C:\\DynamoRIO-Windows-10.0.0",
+  "TestProfile"           : "C:\\Develop\\unittest\\Platform\\AmdCommonPkg\\Test\\UnitTest\\SoC\\Gn\\GnUtMainProfile.json",
+  "PerlPath"              : "C:\\Strawberry\\perl\\bin"
+}  
+```
+
+33) Now we can ``` cd C:\Develop\unittest\unit_test_framework\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Dispatcher ``` <br>
+Then we can run ``` python dispatcher.py dispatcher_configs.json ``` 
+
+34) Now we will work on the coverage script at ~/Scripts/Coverage/ <br>
+```   
+{
+  "InPath"                : "C:\\Develop\\unittest\\Results",
+  "OutPath"               : "C:\\Develop\\unittest\\Results\\report",
+  "RepoPath"              : "C:\\Develop\\unittest",
+  "DynamoRioPath"         : "C:\\DynamoRIO-Windows-10.0.0",
+  "SrcFileList"           : "C:\\Develop\\unittest\\Platform\\AmdCommonPkg\\Test\\UnitTest\\SoC\\Gn\\GnSrcFileList.json",
+  "PerlPath"              : "C:\\Strawberry\\perl\\bin"
+}
+```
+
+35) Now we can ``` cd C:\Develop\unittest\unit_test_framework\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Coverage ``` <br>
+Then we can run ``` python report.py report_configs.json ```
+
+36) Takeaway here: Dispatcher is for single branch of testing of some module; Coverage is for the summary of all Dispatchers and sums up to a single coverage report.
+
+37) In ~/Coverage/report.py <br>
+change line 136 to include double slashes, like this -> ``` files = glob.glob (configs["InPath"]+ "\\**\\*.coverage.info", recursive=True) ``` <br>
+change line 218 the same way -> ``` genhtml = os.path.join(configs["DynamoRioPath"], "tools\\bin32\\genhtml") ```
+
+38) Now we can run ``` python report.py report_configs.json ``` (if there was a problem that required this change; if not, then it should have worked in the first place.)
+
+
+
+
+
+## First Try
+
+39) We should now be ready to dive into unit test. Let's now move on to phase 2.
