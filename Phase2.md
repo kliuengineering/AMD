@@ -88,11 +88,53 @@ https://github.com/openSIL/unit_test_framework/blob/genoa_poc/documentation/Unit
 
 19. Remember if we run the command, then we can see the results both in terminal and in the report -> ``` cd C:\Develop\unittest\unit_test_framework\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Dispatcher ```
 
+20. Recap: always remember to have 2 terminal windows opened for compilation of the new unit-test, and the directories are: <br>
+``` cd C:\Develop\unittest\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Dispatcher ``` <br>
+``` cd C:\Develop\unittest\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Coverage ``` <br>
+Also, remember the two scripts are: <br>
+``` python dispatcher.py dispatcher_configs.json ``` <br>
+``` python report.py report_configs.json ``` <br>
+
 
 
 
 
 ## Session 3
+
+21. Now, with everything set up properly, we need to care about the "inclusion" of packages + specific unit tests into an "index" file (so the compiler knows where to find the specific unit test). <br>
+The first file we will look at is: <br>
+``` cd C:\Develop\unittest\AmdOpenSilPkg\opensil-uefi-interface\UnitTest\AmdOpenSilUtPkgGn.dsc.inc ``` <br>
+We can register new new tests here under [Components.common.HOST_APPLICATION] section.
+
+22. Remember ---> after modification, we will need to call ``` dbuild.cmd clean ``` followed by the ``` dbuild.cmd ut UnitTest\AgesaModuleUtPkgGn.dsc ```
+
+23. Stubs -> just return canned values. Returns either valid or invalid values for the sake of testing.
+
+24. Fakes -> opposite to Stubs, you actually "implements" whatever module is needed, but is still decoupled from external real stuff.
+
+25. Mocks -> somewhere in the middle b/t Stubs and Fakes, more complex Stub, but not complete model of implementation. E.g. if we want to test a specific iteration of something, we can "Mock" the dependency objects.
+
+26. Stubs, Fakes, and Mocks are located inside ``` cd C:\Develop\unittest\AmdOpenSilPkg\opensil-uefi-interface\UnitTest\Library ```
+
+27. There is a good example at ``` cd C:\Develop\unittest\AmdOpenSilPkg\opensil-uefi-interface\UnitTest\Library\Mocks\UtMmioMockLib\UtMmioMockLib.c ``` <br>
+In line #441 and the subsequent lines, we see the usage of "AND" "OR" masks to set/reset bits. <br>
+In line #123, we see the usage of calling an API function which passes in function ptr with some other parameters.
+
+28. Important takeaway from this session: <br>
+Follow the following procedure to build a UT succesfully -
+    - the following 2 files needed to be modified to include the test cases
+        - ``` C:\Develop\unittest\AmdOpenSilPkg\opensil-uefi-interface\UnitTest\AmdOpenSilUtPkgGn.dsc.inc ``` 
+        - ``` C:\Develop\unittest\AmdOpenSilPkg\opensil-uefi-interface\UnitTest\SoC\Common\SilCmnProf.json ```
+        - ![Alt text](./img/Session_3_1.png) <br>
+        - ![Alt text](./img/Session_3_2.png) <br>
+    - Next, we will need to go back to ./unittest/ and run ``` dbuild.cmd clean ``` followed by ``` dbuild.cmd ut UnitTest\AgesaModuleUtPkgGn.dsc ```
+    - Next, we will run ``` cd C:\Develop\unittest\unit_test_framework\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Dispatcher ``` <br>
+    followed by ``` python dispatcher.py dispatcher_configs.json ``` 
+    - Next, we will run ``` cd C:\Develop\unittest\unit_test_framework\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Coverage ``` <br>
+    followed by ``` python report.py report_configs.json ```
+    - Next, the final results will be shown in: <br>
+    ``` cd C:/Develop/unittest/Results/index.html ``` <br>
+    ``` cd C:/Develop/unittest/Results/report/index.html ```
 
 
 
