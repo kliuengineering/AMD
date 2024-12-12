@@ -6,6 +6,9 @@
 3. [First Try](#First-Try)
 
 ## Setting Up for Windows
+
+## Session 1
+
 Assuming we have a fresh windows 11 Pro installation, the steps are as follows:
 1) Install chocolatey package manager using PowerShell script using: <br>
 ```Set-ExecutionPolicy Bypass -Scope Process -Force; `
