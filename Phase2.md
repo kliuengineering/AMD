@@ -174,3 +174,26 @@ For example, if we want to make a new stub lib: <br>
 
 
 # Session 5
+
+33. We take some time to introduce openSIL: <br>
+There are 3 main modules -> xPRF, xSIM, xUSL <br>
+xUSL is where the silicon initialization lives, and we will be dealing with it most. <br>
+There are many IPs (aka modules) inside xUSL. <br> 
+![Alt text](./img/Session_5_1.png)
+
+34. IP to IP API is a specific method to connect different IPs together. Adapter pattern. <br>
+The API -> a table of function ptrs. <br>
+    - Function ptrs do different things.
+    - OpenSIL does not allow calling functions from another IP directly.  
+
+35. An example can be found here: <br>
+    - Note that it is using the vector table @ ``` C:\Develop\unittest\AmdOpenSilPkg\opensil-uefi-interface\OpenSIL\Include\xSIM-api.h ``` <br>
+![Alt text](./img/Session_5_2.png)
+
+36. Now we need to stub, mock, or fake dummy API for testing when time comes. 
+
+37. At this point, we've talked about "inter-IP" communication via IP to IP API.
+    - This IP to IP API is basically an adapter design pattern.
+
+38. There is also the concept of "intra-IP" communication using TRANSFER TABLE. 
+    - TRANSFER TABLE is a decorator design pattern.
