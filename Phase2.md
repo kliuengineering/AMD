@@ -4,6 +4,7 @@
 1. [Session #2](#Session-2)
 2. [Session #3](#Session-3)
 3. [Session #4](#Session-4)
+4. [Session #5](#Session-5)
 
 
 
@@ -156,4 +157,20 @@ bool xUslIsComputeUnitPrimary (
 }
 ```
 
-31. ff
+31. When we write UTs, we need to decide whether or not stubs are needed, but we don't know. To resolve this, we might need to go through the API libraries and see we can just use them. <br>
+At this point, the following libs are included in most tests we write: <br>
+
+32. Now let's go through the procedure of making your own lib. <br>
+For example, if we want to make a new stub lib: <br>
+    - ``` cd C:\Develop\unittest\AmdOpenSilPkg\opensil-uefi-interface\UnitTest\Library\Stubs ```
+    - Creates a new folder named ``` UtXXXXXXStubLib ```, for example ``` UtCpuOpsStubLib.c ``` 
+    - Then, we need to create ``` UtCpuOpsStubLib.inf ``` , can use other .inf as reference 
+    - Then, we need to register the .inf file into the system.
+        - under ``` C:\Develop\unittest\unit_test_framework\AmdOpenSilPkg\opensil-uefi-interface\UnitTest\AmdOpenSilUtPkg.dsc.inc ```
+        - ![Alt text](./img/Session_4_2.png)
+
+
+
+
+
+# Session 5
