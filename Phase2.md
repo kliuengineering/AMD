@@ -141,3 +141,19 @@ Follow the following procedure to build a UT succesfully -
 
 
 ## Session 4
+
+29. This section is a deep dive into CcxEnableSmee() function at line #190 from ``` C:\Develop\unittest\AmdOpenSilPkg\opensil-uefi-interface\OpenSIL\xUSL\CCX\Common\CcxMiscInit.c ```
+
+30. When we compile, if we see the following error, then it may be the fact that some external modules are used, so we need to implement mocks or similar for resolving the undeclared externals. <br>
+![Alt text](./img/Session_4_1.png) <br>
+From the above "unresolved external" cases, we will need to stub it with something similar to the following: <br>
+``` 
+bool xUslIsComputeUnitPrimary (
+  void
+  )
+{
+  return TRUE;
+}
+```
+
+31. ff
