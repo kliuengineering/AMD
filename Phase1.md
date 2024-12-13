@@ -39,11 +39,14 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 
 10) Go back to ~/unittest/, we will do ``` git clone https://github.com/openSIL/AGCL-R.git ``` and then ``` cd AGCL-R ``` and then ``` git checkout genoa_poc ```
 
-11) Go back to ~/unittest/, then ``` git clone https://github.com/openSIL/EDKII-Platform.git Platform ``` and then cd into it, and then ``` git checkout geona_poc ```
+11) Go back to ~/unittest/, then ``` git clone https://github.com/openSIL/EDKII-Platform.git Platform ``` and then cd into it, and then ``` git checkout genoa_poc ```
 
 12) Go back to ~/unittest/, we will do ``` git clone https://github.com/openSIL/unit_test_framework.git ``` and then cd into it, and then checkout genoa_poc again.
 
-13) ~~Copy the entire folder called "opensil-uefi-interface" from ``` ~/unittest/unit_test_framework/AmdOpenSilPkg/ ``` to ``` ~/unittest/AmdOpoenSilPkg/ ``` replace everything in there.~~
+13) We can do this step after step #27 <br>
+cd into ``` ~/unittest/unit_test_framework/AmdOpenSilPkg/ ``` <br>
+Copy the entire folder called "opensil-uefi-interface" to ``` ~/unittest/AmdOpoenSilPkg/ ``` <br>
+replace everything in the destination (if any prompts).
 
 14) Go back to ~/unittest/, we will do ``` git clone -b edk2-stable202205 https://github.com/tianocore/edk2.git ``` and then perform ``` cd edk2 ``` and then perform ``` git submodule update --init ```
 
@@ -68,7 +71,7 @@ Move all contents of ``` amd_firmwares/Firmwares/Genoa ``` into ``` AGCL-R/Agesa
 
 24) We will also go into ``` C:/Program Files (x86)/MicrosoftSDK/Windows Kits/ ``` and copy & paste "10" into ``` ~/unittest/BuildTools/BuildTools/WindowsSDK/ ``` note we need to ``` mkdir WindowsSDK ``` here as well.
 
-25) Now go to [https://strawberryperl.com](...) and download 5.40.XX version, install it. ~~Go into ``` ~/Strawberry/ ``` copy & paste the folder "perl" into ``` ~/unittest/BuildTools/BuildTools/ ``` and then copy & paste the folder "c" into ``` ~/perl/ ```~~
+25) Now go to [https://strawberryperl.com](...) and download 5.40.XX version, install it. 
 
 26) Go back to ~/unittest/, we will go into ``` ~/unittest/unit_test_framework/ ``` and copy & paste the Platform folder to ```~/unittest/ ``` and overwrite the existing folder. 
     
