@@ -90,8 +90,8 @@ https://github.com/openSIL/unit_test_framework/blob/genoa_poc/documentation/Unit
 19. Remember if we run the command, then we can see the results both in terminal and in the report -> ``` cd C:\Develop\unittest\unit_test_framework\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Dispatcher ```
 
 20. Recap: always remember to have 2 terminal windows opened for compilation of the new unit-test, and the directories are: <br>
-``` cd C:\Develop\unittest\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Dispatcher ``` <br>
-``` cd C:\Develop\unittest\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Coverage ``` <br>
+``` cd C:\Develop\unittest\unit_test_framework\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Dispatcher ``` <br>
+``` cd C:\Develop\unittest\unit_test_framework\Platform\AmdCommonPkg\Test\UnitTest\Scripts\Coverage ``` <br>
 Also, remember the two scripts are: <br>
 ``` python dispatcher.py dispatcher_configs.json ``` <br>
 ``` python report.py report_configs.json ``` <br>
@@ -197,3 +197,92 @@ The API -> a table of function ptrs. <br>
 
 38. There is also the concept of "intra-IP" communication using TRANSFER TABLE. 
     - TRANSFER TABLE is a decorator design pattern.
+
+39. Let's talk about IP-to-IP adapter:
+    - It is a table of function pointers.
+    - We need to provide a table when UUT is calling one of the function pointers. 
+    - Example walkthrough below ()
+    - ``` cd C:\Develop\unittest\AmdOpenSilPkg\opensil-uefi-interface\OpenSIL\xUSL\DF\Common\BaseFabricTopologyCmn.c ```
+
+```cpp
+/* ~\unittest\AmdOpenSilPkg\opensil-uefi-interface\OpenSIL\xUSL\DF\Common\BaseFabricTopologyCmn.c */
+
+SIL_STATUS
+DfGetProcessorInfo (
+  uint32_t SocketIndex,
+  uint32_t *DieCount,
+  uint32_t *RootBridgeCount
+  )
+{
+  DF_COMMON_2_REV_XFER_BLOCK* DfXfer;
+  SIL_STATUS                  Status;
+
+  Status = SilGetCommon2RevXferTable (SilId_DfClass, (void**) &DfXfer);
+  assert (Status == SilPass);
+
+  /*
+   * If any pointer input is != NULL, do not assert.  We should only assert if
+   * all inputs are NULL since this function call would be unecessary.  This
+   * check is only valid for debug builds.
+   */
+  assert ((DieCount != NULL) || (RootBridgeCount != NULL));
+
+  if (SocketIndex >= DfXfer->DfGetNumberOfProcessorsPresent ()) {
+    return SilInvalidParameter;
+  }
+
+  if (DieCount != NULL) {
+    *DieCount = (uint32_t) DfGetNumberOfDiesOnSocket();
+  }
+
+  if (RootBridgeCount != NULL) {
+    *RootBridgeCount = (uint32_t) DfXfer->DfGetNumberOfRootBridgesOnSocket (SocketIndex);
+  }
+
+  return SilPass;
+}
+```
+<br>
+
+```cpp
+/* Loose codes for DfGetProcessorinfoUt.c */
+
+HOST_DEBUG_SERVICE mHostDebugService = NULL;
+
+// vector table (function ptr); needs to be instantiated for making the Ut work.
+// put a DOT before the function pointers.
+// NULL just means we don't use it for the current UUT
+DF_COMMON_2_REV_XFER_BLOCK DfCmn2RevPhxXfer = {
+    .DfFabricRegisterAccRead            =       NULL,      
+    .DfFabricRegisterAccWrite           =       NULL,
+    .DfGetNumberOfProcessorsPresent     =       GetNumberOfProcessorsPresentUt,
+    .DfGetNumberOfSystemDies            =       GetNumberOfSystemDieUt,
+    .DfGetNumberOfSystemRootBridges     =       NULL,
+    .DfGetNumberOfRootBridgesOnSocekt   =       GetNumberOfRootBridgesOnSocketUt,
+    // more function pointers below, but all initialized to NULL
+};
+
+UINT32
+GetNumberOfProcessorsPresentUt (    // stub
+    void
+)
+{
+    return 1;
+}
+
+UINT32
+GetNumberOfRootBridgesOnSocketUt (  // stub
+    UINT32 Socket
+)
+{
+    return 1;
+}
+
+UINT32
+GetNumberOfSystemDiesUt (           // stub
+    void
+)
+{
+    return 1;
+}
+```
