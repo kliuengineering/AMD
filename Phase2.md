@@ -286,3 +286,9 @@ GetNumberOfSystemDiesUt (           // stub
     return 1;
 }
 ```
+
+40. See example in the codes folder for ip 2 ip API implementations. Pay attention to the includes (in the .inf file) as well as how to call the mock API.
+
+
+
+

@@ -23,7 +23,18 @@ Link: [Phase 2 Documentation](Phase2.md)
 
 Timeline
 - Start Date: December 9, 2024
-- End Date: TBD
+- End Date: December 17, 2024
 
 Abstract
+- One week is spent on familiarizing the UT framework including stubs and mocks. 
+- IP 2 IP API is discussed in details with concrete examples.
+- Discussion is made on the automation of UT.
+- There will be a parallel development for research and development starting early January, 2025.
+
+## Phase Three - Research and Development (in parallel)
+Link: [Phase 3 Documentation; Research](Phase3-1.md)
+Link: [Phase 3 Documentationl Development](Phase3-1.md)
+
+Timeline
+- Start Date: December 18, 2024
 - TBD
