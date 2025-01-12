@@ -3,6 +3,7 @@
 ## Table of Contents
 1. [Commonly Occurred Issues](#Commonly-Occurred-Issues)
 2. [UUT Batch 1](#UUT-Batch-1)
+3. [UUT Batch 2](#UUT-Batch-2)
 
 
 
@@ -34,3 +35,11 @@ So, we need to write targeted fakes to solve this problem.
 4. Pay attention to how to write Fakes as well how to navigate through the libraries to retrieve:
     - what constants and declarations are need for Faking the sub-function calls;
     - which data structures can be stubbed instead.
+
+
+
+
+
+## UUT-Batch-2
+
+### Timeline: January 12, 2025 -> TBD
