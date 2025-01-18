@@ -43,3 +43,19 @@ So, we need to write targeted fakes to solve this problem.
 ## UUT-Batch-2
 
 ### Timeline: January 12, 2025 -> TBD
+
+1. The following .c file is the target goal for completion: <br>
+``` ~\AmdOpenSilPkg\opensil-uefi-interface\OpenSIL\xUSL\CCX\Zen4\Zen4.c ```
+
+2. The first function of UUT is about testing C Macros: <br>
+```
+#define CCX_TRACEPOINT(MsgLevel, Message, ...)        \
+  do {                \
+    if (DEBUG_FILTER_CCX & SIL_DEBUG_MODULE_FILTER) {    \
+      XUSL_TRACEPOINT(MsgLevel, Message, ##__VA_ARGS__);  \
+        }\
+  } while (0)
+``` 
+<br>
+
+3. we need to pay attention to how to mock the macro. 
