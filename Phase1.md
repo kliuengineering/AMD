@@ -4,6 +4,7 @@
 1. [Builder Setup](#setting-up-for-windows)
 2. [Framework Setup](#Framework-Setup)
 3. [First Try](#First-Try)
+4. [Configures VSCode Intellisense](#Configures-Intellisense)
 
 ## Setting Up for Windows
 
@@ -137,3 +138,49 @@ change line 218 the same way -> ``` genhtml = os.path.join(configs["DynamoRioPat
 ## First Try
 
 39) We should now be ready to dive into unit test. Let's now move on to phase 2.
+
+
+
+
+
+## Configures Intellisense
+
+The following snippet sets an example of how we should configure the VSCode intellisense for this project. The configure file can be found c_cpp_properties.json in VSCode.
+
+```
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Windows Kits/10/include/10.0.19041.0/ucrt",
+                "C:/Windows Kits/10/include/10.0.19041.0/shared",
+                "C:/Programs/VisualStudio2019/IDE/VC/Tools/MSVC/14.29.30133/include",
+                "C:/Windows Kits/10/include/10.0.19041.0/um",
+                "C:/Windows Kits/10/include/10.0.19041.0/winrt",
+                "C:/Develop/unittest/Platform"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:/Programs/VisualStudio2019/IDE/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "C:/Develop/unittest/Platform",
+                    "C:/Windows Kits/10/include/10.0.19041.0/ucrt",
+                    "C:/Windows Kits/10/include/10.0.19041.0/shared"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        }
+    ],
+    "version": 4
+}
+```

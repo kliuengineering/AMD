@@ -42,20 +42,26 @@ So, we need to write targeted fakes to solve this problem.
 
 ## UUT-Batch-2
 
-### Timeline: January 12, 2025 -> TBD
+### Timeline: January 12, 2025 -> January 23, 2025
 
 1. The following .c file is the target goal for completion: <br>
-``` ~\AmdOpenSilPkg\opensil-uefi-interface\OpenSIL\xUSL\CCX\Zen4\Zen4.c ```
+``` ~\AmdOpenSilPkg\opensil-uefi-interface\OpenSIL\xUSL\CCX\Zen4\Zen4DownCoreInit.c ```
 
-2. The first function of UUT is about testing C Macros: <br>
-```
-#define CCX_TRACEPOINT(MsgLevel, Message, ...)        \
-  do {                \
-    if (DEBUG_FILTER_CCX & SIL_DEBUG_MODULE_FILTER) {    \
-      XUSL_TRACEPOINT(MsgLevel, Message, ##__VA_ARGS__);  \
-        }\
-  } while (0)
-``` 
-<br>
+2. The UUT is complete and uploaded at ```codes/``` dicrectory.
 
-3. we need to pay attention to how to mock the macro. 
+3. Pay attention to the use of CMocka in writing the mock call to a static function (can be found easily inside ```Zen4DownCoreInit.c```).
+
+
+
+
+
+## UUT-Batch-3
+
+### Timeline: January 23, 2025 -> TBD
+
+1. The goal of this sprint is to tackle the following initialization file: <br>
+``` ~\AmdOpenSilPkg\opensil-uefi-interface\OpenSIL\xUSL\RcMgr\FabricRcInit.c ```
+
+2. We shall pay attention to the usage of IP2IP API with transfer tables. 
+
+3. We may need to create a number of stubs, but mocks may not be needed as the logics do not require a control of rc.
