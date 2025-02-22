@@ -1,0 +1,87 @@
+[
+    {
+        "signature": "int add(int a, int b)",
+        "file": "C:/AmdWorkspace/Parser/test_directory/file1.c",
+        "dependencies": [
+            "stdio.h"
+        ],
+        "comments": [
+            "This function adds two numbers"
+        ],
+        "error_cases": [
+            { 
+                "case 1": dependency 正确，但是还是出错
+                {
+                    "方案1：xxxx，概率（50%）":
+                    "“方案2：yyyy，概率（30%）”"
+                    “方案3：zzzz，概率（20%)"
+                }
+        ]
+    },
+    {
+        "signature": "int subtract(int a, int b)",
+        "file": "C:/AmdWorkspace/Parser/test_directory/file1.c",
+        "dependencies": [
+            "stdio.h"
+        ],
+        "comments": [
+            "Subtract function"
+        ]
+    },
+    {
+        "signature": "int int_div(int a, int b)",
+        "file": "C:/AmdWorkspace/Parser/test_directory/subdirA/file2.c",
+        "dependencies": [
+            "string.h"
+        ],
+        "comments": [
+            "This function performs integer division"
+        ]
+    },
+    {
+        "signature": "double square_root(const double x)",
+        "file": "C:/AmdWorkspace/Parser/test_directory/subdirA/subsubdirC/file4.c",
+        "dependencies": [
+            "stdlib.h",
+            "math.h"
+        ],
+        "comments": []
+    },
+    {
+        "signature": "int mul(int a, int b)",
+        "file": "C:/AmdWorkspace/Parser/test_directory/subdirB/file3.c",
+        "dependencies": [
+            "stdlib.h",
+            "stdio.h"
+        ],
+        "comments": [
+            "This function multiplies two numbers"
+        ]
+    },
+    {
+        "signature": "void print_hello(void)",
+        "file": "C:/AmdWorkspace/Parser/test_directory/subdirB/subsubdirD/file5.c",
+        "dependencies": [
+            "stdlib.h",
+            "stdio.h"
+        ],
+        "comments": []
+    },
+    {
+        "signature": "int is_equal(int x, int y)",
+        "file": "C:/AmdWorkspace/Parser/test_directory/subdirB/subsubdirD/file6.c",
+        "dependencies": [
+            "stdio.h"
+        ],
+        "comments": []
+    },
+    {
+        "signature": "Node* \nMakeNode (int data)",
+        "file": "C:/AmdWorkspace/Parser/test_directory/subdirB/subsubdirE/file8.c",
+        "dependencies": [
+            "file7.h",
+            "stdlib.h"
+        ],
+        "comments": []
+    }
+]

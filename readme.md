@@ -1,7 +1,7 @@
 # openSIL Modular Unit-Test Logs
 
 ## Description
-- This repository is dedicated to the R&D of a research project with AMD (US & Canada).
+- This repository is dedicated to the R&D of a research project with AMD.
 - All enclosed files are intended to be open-sourced upon release.
 
 ## Objectives
