@@ -57,7 +57,7 @@ So, we need to write targeted fakes to solve this problem.
 
 ## UUT-Batch-3
 
-### Timeline: January 23, 2025 -> TBD
+### Timeline: January 23, 2025 -> February 21, 2025
 
 1. The goal of this sprint is to tackle the following initialization file: <br>
 ``` ~\AmdOpenSilPkg\opensil-uefi-interface\OpenSIL\xUSL\RcMgr\FabricRcInit.c ```
@@ -65,3 +65,17 @@ So, we need to write targeted fakes to solve this problem.
 2. We shall pay attention to the usage of IP2IP API with transfer tables. 
 
 3. We may need to create a number of stubs, but mocks may not be needed as the logics do not require a control of rc.
+
+4. The completed UTs can be found on the obsoleted openSIL code base on Github.
+
+
+
+
+
+## UUT-Batch-4
+
+### Timeline: February 22, 2025 -> March 7, 2025
+
+1. The goal of this sprint is to migrate to the Phoenix code base. 
+
+2. UTs are expected to be written based on the new code base.
