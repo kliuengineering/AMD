@@ -32,8 +32,9 @@ Abstract
 - There will be a parallel development for research and development starting early January, 2025.
 
 ## Phase Three - Code Migration & Initial Research (in parallel)
-Link: [Phase 3 Documentation; Research](Phase3-2.md)
-Link: [Phase 3 Documentationl Development](Phase3-1.md)
+Link: [Phase 3 Documentation: Research](Phase3-2.md)
+Link: [Phase 3 Documentation: Development](Phase3-1.md)
+Link: [Phase 3 Documentation: Phx code base migration](Phase3-PhxMigration.md)
 
 Timeline
 - Start Date: December 18, 2024
@@ -43,4 +44,5 @@ Abstract
 - Six weeks are spent on writing UTs for the old code base.
 - Automation research starts in early February.
 - The main objective is to migrate from the old code base to the new code base.
+    - Refers to the link above.
 - There will be a parallel development for research and development starting early February, 2025.
