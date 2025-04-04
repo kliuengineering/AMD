@@ -70,7 +70,7 @@ Move all contents of ``` amd_firmwares/Firmwares/Genoa ``` into ``` AGCL-R/Agesa
 
 23) After installation, we will then find MSVC package from ``` VisualStudio2019/.../VC/Tools/ ``` and then copy and paste into ``` ~/unittest/BuildTools/BuildTools/ ```
 
-24) We will also go into ``` C:/Program Files (x86)/MicrosoftSDK/Windows Kits/ ``` and copy & paste "10" into ``` ~/unittest/BuildTools/BuildTools/WindowsSDK/ ``` note we need to ``` mkdir WindowsSDK ``` here as well.
+24) We will also go into ``` C:/Program Files (x86)/MicrosoftSDK/Windows Kits/ ``` and copy & paste "10" into ``` ~/unittest/BuildTools/BuildTools/WindowsSDK/ ``` note we need to ``` mkdir WindowsSDK ``` here as well. **important**: for some Windows system, the right Windows Kits is actually located in ```C:/Windows kits``` and not in the ```Program Files (x86)``` folder. Check if the "10" folder has sufficient contents such as the "bin" folder.
 
 25) Now go to [https://strawberryperl.com](...) and download 5.40.XX version, install it. 
 

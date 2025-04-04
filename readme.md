@@ -32,13 +32,12 @@ Abstract
 - There will be a parallel development for research and development starting early January, 2025.
 
 ## Phase Three - Code Migration & Initial Research (in parallel)
-Link: [Phase 3 Documentation: Research](Phase3-2.md)
-Link: [Phase 3 Documentation: Development](Phase3-1.md)
+Link: [Phase 3 Documentation: Development](Phase3.md)
 Link: [Phase 3 Documentation: Phx code base migration](Phase3-PhxMigration.md)
 
 Timeline
-- Start Date: December 18, 2024
-- TBD
+- Start Date: December 18, 2025
+- End Date: Feb 5, 2025
 
 Abstract
 - Six weeks are spent on writing UTs for the old code base.
@@ -46,3 +45,14 @@ Abstract
 - The main objective is to migrate from the old code base to the new code base.
     - Refers to the link above.
 - There will be a parallel development for research and development starting early February, 2025.
+
+## Phase Four - Automation Research
+- Link: [Phase 4 Documentation: Development](Phase4.md)
+- Link: [AMD Research Requirements Elicitation](img/Jason-Wish-List.png)
+
+Timeline
+- Start Date: Feb 6, 2025
+- End Date: April 20, 2025
+
+Abstract
+(*hidden)

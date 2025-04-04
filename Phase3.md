@@ -81,3 +81,5 @@ So, we need to write targeted fakes to solve this problem.
 1. The goal of this sprint is to migrate to the Phoenix code base. 
 
 2. UTs are expected to be written based on the new code base.
+
+3. Link: [Phase 3 Documentation: Phx code base migration](Phase3-PhxMigration.md)
